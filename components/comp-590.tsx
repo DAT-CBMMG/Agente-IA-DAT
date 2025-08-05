@@ -1,14 +1,4 @@
-import {
-  CompassIcon,
-  FeatherIcon,
-  HouseIcon,
-  PlusIcon,
-  SearchIcon,
-} from "lucide-react"
-
-import NotificationMenu from "@/components/notification-menu"
 import TeamSwitcher from "@/components/team-switcher"
-import UserMenu from "@/components/user-menu"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -25,7 +15,7 @@ import {
 const teams = ["IA Help Desk DAT"]
 
 // Navigation links array to be used in both desktop and mobile menus
-const navigationLinks: { href: string; label: string; icon: any }[] = []
+const navigationLinks: { href: string; label: string; icon: React.ElementType }[] = []
 
 export default function Component() {
   return (

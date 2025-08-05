@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { ChatMessage } from "./chat-message";
 import { ChatInput } from "./chat-input";
 
+interface MessageContent {
+  type: 'text';
+  content: string;
+}
+
 interface Message {
   role: 'user' | 'agent';
-  content: any;
+  content: MessageContent;
 }
 
 export function ChatLayout() {
@@ -41,7 +44,7 @@ export function ChatLayout() {
       const data = await response.json();
       setMessages(currentMessages => [...currentMessages, { role: 'agent', content: data.response }]);
 
-    } catch (error) {
+    } catch {
       setMessages(currentMessages => currentMessages.slice(0, -1));
       setMessages(currentMessages => [...currentMessages, { role: 'agent', content: { type: 'text', content: 'Erro: Não foi possível ligar ao servidor.' } }]);
     }

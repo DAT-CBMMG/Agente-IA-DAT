@@ -1,20 +1,25 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Copy, Flame } from "lucide-react";
+
+type Content = 
+  | string
+  | { type: 'text'; content: string }
+  | { type: 'list'; items: string[] }
+  | { type: 'code'; content: string };
+
 interface MessageProps {
   role: 'user' | 'agent';
-  content: any;
+  content: Content;
 }
 
 export function ChatMessage({ role, content }: MessageProps) {
   const renderContent = () => {
-    const textContent = typeof content === 'string' ? content : content.content || '';
-    const cleanedText = textContent.replace(/(\*\*|__|`|#+\s*)/g, '');
-    const paragraphs = cleanedText.split('\n').map((paragraph: string, index: number) => (
-      <p key={index} style={{ whiteSpace: 'pre-wrap' }}>{paragraph}</p>
-    ));
-
     if (typeof content === 'string' || (content && content.type === 'text')) {
+      const textContent = typeof content === 'string' ? content : content.content;
+      const cleanedText = textContent.replace(/(\*\*|__|`|#+\s*)/g, '');
+      const paragraphs = cleanedText.split('\n').map((paragraph: string, index: number) => (
+        <p key={index} style={{ whiteSpace: 'pre-wrap' }}>{paragraph}</p>
+      ));
       return <div>{paragraphs}</div>;
     }
 

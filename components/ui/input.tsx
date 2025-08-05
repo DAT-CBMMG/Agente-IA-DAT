@@ -4,10 +4,9 @@ import * as React from "react"
 // Importa a função `cn` (classnames) de um arquivo de utilitários para mesclar classes do Tailwind CSS de forma condicional.
 import { cn } from "@/lib/utils"
 
-// Define a interface de propriedades para o componente Input.
-// Ela estende as propriedades padrão de um input HTML.
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+// Define o tipo de propriedades para o componente Input.
+// Ele é um alias para as propriedades padrão de um input HTML.
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 // Define o componente Input como uma função que aceita as propriedades definidas acima.
 // Usamos `React.forwardRef` para permitir que o componente receba uma `ref` e a passe para o elemento input subjacente.

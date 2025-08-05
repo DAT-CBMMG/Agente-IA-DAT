@@ -51,12 +51,12 @@ export function ChatLayout() {
   };
 
   return (
-    <div className="w-[760px] h-[80vh] grid grid-rows-[1fr_auto]">
+    <div className="w-full md:w-[760px] h-full md:h-[80vh] grid grid-rows-[1fr_auto] p-4 md:p-0">
       <ScrollArea className="h-full pr-4">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center">
-            <h2 className="text-2xl font-bold mb-2">Olá, qual sua dúvida no sistema Infoscip fiscalizaçao?</h2>
-            <div className="flex gap-4 mt-4">
+            <h2 className="text-xl md:text-2xl font-bold mb-2">Olá, qual sua dúvida no sistema Infoscip fiscalizaçao?</h2>
+            <div className="flex flex-col md:flex-row gap-4 mt-4">
               <div className="p-4 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg" onClick={() => handleSendMessage("Como cadastrar um processo?")}>
                 <p>Como cadastrar um processo?</p>
               </div>

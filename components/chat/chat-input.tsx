@@ -26,13 +26,13 @@ export function ChatInput({ onSendMessage }: ChatInputProps) {
 
   return (
     <div className="p-4">
-      <div className="relative w-[760px] h-[120px]">
+      <div className="relative w-full">
         <Textarea
           placeholder="Digite sua mensagem..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={handleKeyPress}
-          className="w-full h-full pr-16 rounded-2xl resize-none"
+          className="w-full min-h-[80px] md:min-h-[120px] pr-16 rounded-2xl resize-none"
         />
         <Button 
           onClick={handleSend} 

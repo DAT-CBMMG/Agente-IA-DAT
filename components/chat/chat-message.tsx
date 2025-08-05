@@ -55,7 +55,7 @@ export function ChatMessage({ role, content }: MessageProps) {
 
   return (
     <div
-      className={`flex gap-3 text-slate-600 text-sm ${
+      className={`flex gap-3 text-slate-600 text-sm md:text-base ${
         role === 'user' ? 'justify-end' : ''
       }`}
     >
